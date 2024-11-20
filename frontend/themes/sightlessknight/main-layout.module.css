@@ -1,0 +1,43 @@
+@import "styles.css"
+
+vaadin-scroller;[slot="drawer"] {
+    padding: var(--lumo-space-s);
+    background: var(--lumo-dark-color);
+}
+
+[slot="drawer"]:is(header, footer) {
+    display: flex;
+    align-items: center;
+    gap: var(--lumo-space-s);
+    padding: var(--lumo-space-s) var(--lumo-space-m);
+    min-height: var(--lumo-size-xl);
+    box-sizing: border-box;
+    background: var(--lumo-dark-color);
+}
+
+[slot="drawer"]:is(header, footer):is(:empty) {
+    display: none;
+    background: var(--lumo-dark-color);
+}
+
+.aa {
+    background: var(--lumo-base-color);
+}
+
+.parent {
+
+}
+
+.parent vaadin-side-nav {
+    background: var(--lumo-base-color);
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text-color);
+    text-decoration: none;
+}

@@ -140,13 +140,7 @@ public class FenUtils {
         }
 
         // Active color
-        Team activeColor;
-        if (team == null) {
-            activeColor = GameState.moveNumber % 2 == 0 ? Team.BLACK : Team.WHITE;
-        } else {
-            activeColor = team;
-        }
-        fenBuilder.append(" ").append(activeColor == Team.WHITE ? "b" : "w");
+        fenBuilder.append(" ").append(GameState.currentTurn == Team.WHITE ? "w" : "b");
 
         // Castling availability
         StringBuilder castlingAvailability = new StringBuilder();
@@ -157,7 +151,7 @@ public class FenUtils {
         fenBuilder.append(" ").append(castlingAvailability);
 
         // En Passant
-        checkForEnPassant(fenBuilder, activeColor);
+        checkForEnPassant(fenBuilder, GameState.currentTurn);
 
         // TODO: Implement Halfmove clock and fullmove number
         fenBuilder.append(" 0 1");

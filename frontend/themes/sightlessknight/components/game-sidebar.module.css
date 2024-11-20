@@ -1,0 +1,61 @@
+.target_square {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #90bdf9;
+    background: #1a2a41;
+    border-radius: .5rem;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.move_history {
+    display: flex;
+    height: 100%;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.move_history::-webkit-scrollbar {
+    display: none;
+}
+
+.moves {
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--lumo-dark-color);
+    border-radius: .5rem;
+}
+
+.white_moves {
+
+}
+
+.black_moves {
+    margin-left: 4rem;
+}
+
+.game_actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.game_actions_buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.game_actions_group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.game_actions_group:first-child vaadin-button{
+    margin-right: .25rem;
+}

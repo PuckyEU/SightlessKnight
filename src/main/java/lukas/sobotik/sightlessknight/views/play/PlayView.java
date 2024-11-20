@@ -340,41 +340,43 @@ public class PlayView extends VerticalLayout {
      * @return A string of JavaScript code that controls the behavior of a progress bar.
      */
     public String getProgressBarCode() {
-        return    "const container = document.querySelector('.progress-container');"
-                + "const bar = document.querySelector('.progress-bar');"
-                + "const boardSizeNumber = document.querySelector('.board_size_number');"
-                + "const gameLayout = document.querySelector('.game_layout');"
-                + "let isDragging = false;"
-
-                + "const getNumericValue = (value) => parseFloat(value.match(/(\\d+(\\.\\d+)?)|(\\.\\d+)/)[0]);"
-                + "const minAllowedWidth = getNumericValue(getComputedStyle(gameLayout).getPropertyValue('min-width'));"
-                + "const maxAllowedWidth = getNumericValue(getComputedStyle(gameLayout).getPropertyValue" + "('max-width'));"
-
-                + "container?.addEventListener('mousedown', (e) => {"
-                + "  isDragging = true;"
-                + "});"
-
-                + "document.addEventListener('mousemove', (e) => {"
-                + "  if (isDragging) {"
-                + "      const rect = container.getBoundingClientRect();"
-                + "      const w = (e.clientX - rect.left) / rect.width * 100;"
-                + "      console.log(w, e.clientX, minAllowedWidth, maxAllowedWidth, (minAllowedWidth + (w * 0.01 * (maxAllowedWidth - minAllowedWidth))).toFixed(2));"
-                + "      let percent = Math.min(100, Math.max(0, w));"
-
-                + "      const mappedWidth = (minAllowedWidth + (w * 0.01 * (maxAllowedWidth - minAllowedWidth))).toFixed(2) + 'px';"
-                + "      if (container.style.opacity === '1') {"
-                + "         bar.style.width = `${percent}%`;"
-                + "         localStorage.setItem('boardSize', percent);"
-                + "         gameLayout.style.width = mappedWidth;"
-                + "         container.value = percent;"
-                + "         boardSizeNumber.innerHTML = `${Math.floor(percent)}%`;"
-                + "      }"
-                + "  }"
-                + "});"
-
-                + "document.addEventListener('mouseup', () => {"
-                + "  isDragging = false;"
-                + "});";
+        return """
+                const container = document.querySelector('.progress-container');
+                const bar = document.querySelector('.progress-bar');
+                const boardSizeNumber = document.querySelector('.board_size_number');
+                const gameLayout = document.querySelector('.game_layout');
+                let isDragging = false;
+                
+                const getNumericValue = (value) => parseFloat(value.match(/(\\\\d+(\\\\.\\\\d+)?)|(\\\\.\\\\d+)/)[0]);
+                const minAllowedWidth = getNumericValue(getComputedStyle(gameLayout).getPropertyValue('min-width'));
+                const maxAllowedWidth = getNumericValue(getComputedStyle(gameLayout).getPropertyValue" + "('max-width'));
+                
+                container?.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                  if (isDragging) {
+                      const rect = container.getBoundingClientRect();
+                      const w = (e.clientX - rect.left) / rect.width * 100;
+                      console.log(w, e.clientX, minAllowedWidth, maxAllowedWidth, (minAllowedWidth + (w * 0.01 * (maxAllowedWidth - minAllowedWidth))).toFixed(2));
+                      let percent = Math.min(100, Math.max(0, w));
+                
+                      const mappedWidth = (minAllowedWidth + (w * 0.01 * (maxAllowedWidth - minAllowedWidth))).toFixed(2) + 'px';
+                      if (container.style.opacity === '1') {
+                         bar.style.width = `${percent}%`;
+                         localStorage.setItem('boardSize', percent);
+                         gameLayout.style.width = mappedWidth;
+                         container.value = percent;
+                         boardSizeNumber.innerHTML = `${Math.floor(percent)}%`;
+                      }
+                  }
+                });
+                
+                document.addEventListener('mouseup', () => {
+                  isDragging = false;
+                });
+                """;
     }
 
     /**
@@ -417,7 +419,7 @@ public class PlayView extends VerticalLayout {
 
         String squareClassName = column + "-" + row;
         String jsCode = "let element = document.getElementById(\"" + squareClassName + "\");"
-                      + "element?.classList.add(\"highlighted\");";
+                + "element?.classList.add(\"highlighted\");";
         this.getElement().executeJs(jsCode);
     }
 
@@ -431,7 +433,7 @@ public class PlayView extends VerticalLayout {
 
         String squareClassName = column + "-" + row;
         String jsCode = "let element = document.getElementById(\"" + squareClassName + "\");"
-                      + "element?.classList.remove(\"highlighted\");";
+                + "element?.classList.remove(\"highlighted\");";
         this.getElement().executeJs(jsCode);
     }
 

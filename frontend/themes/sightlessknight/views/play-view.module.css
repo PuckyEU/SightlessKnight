@@ -1,0 +1,41 @@
+.game_container {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.board {
+    display: flex;
+    width: 90vh;
+    height: 100%;
+    max-width: 90vh;
+    min-width: 40vh;
+}
+
+.board_hidden {
+    display: none;
+    height: 100%;
+}
+
+.game_info {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 50vh;
+    height: 100%;
+    background: var(--lumo-dark-color);
+    border-radius: var(--lumo-border-radius-m);
+    margin-left: 2rem;
+}
+
+.game_info_extended {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 60vw;
+    height: 100%;
+    background: var(--lumo-dark-color);
+}

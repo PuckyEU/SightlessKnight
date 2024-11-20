@@ -1,0 +1,18 @@
+.settings {
+    width: 25vw;
+}
+
+.item {
+
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.group:first-child {
+    margin-top: 0;
+}

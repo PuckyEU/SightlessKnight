@@ -1,4 +1,4 @@
-@import url('./main-layout.css');
+@import url('main-layout.module.css');
 
 html {
     --lumo-border-radius-s: calc(var(--lumo-size-m) / 6);
@@ -300,4 +300,11 @@ html {
     .game_content_layout_child {
         width: 20vw;
     }
+}
+
+
+
+/* Range Slider as a Single Thumb Slider */
+.range-slider__thumb[data-lower] {
+    width: 0;
 }

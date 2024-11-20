@@ -1,6 +1,7 @@
 package lukas.sobotik.sightlessknight.views;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
@@ -18,6 +19,8 @@ public class HomeView extends VerticalLayout {
         });
 
         add(practiceMoves, knightButton);
+        Anchor navigateToFlow = new Anchor("hilla", "Navigate to a Hilla view");
+        add(navigateToFlow);
     }
 
     public void reload() {

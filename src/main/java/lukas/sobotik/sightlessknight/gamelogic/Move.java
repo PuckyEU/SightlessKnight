@@ -11,6 +11,9 @@ public class Move {
     private PieceType promotionPiece;
     private MoveFlag moveFlag;
 
+    public Move() {
+    }
+
     public Move(BoardLocation from, BoardLocation to) {
         this.from = from;
         this.to = to;

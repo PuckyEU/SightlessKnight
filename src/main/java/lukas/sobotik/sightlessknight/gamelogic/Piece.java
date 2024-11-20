@@ -23,6 +23,9 @@ public class Piece {
 	public PieceType promotion = null;
 	public int index;
 
+	public Piece() {
+	}
+
 	/**
 	 * Creates a new Instance of the Piece class with the given team and type.
 	 *

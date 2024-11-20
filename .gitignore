@@ -20,3 +20,6 @@ drivers/
 error-screenshots/
 webpack.generated.js
 /out/artifacts/
+
+# Compiled class files
+/src/main/bundles/
